@@ -1,2 +1,4 @@
-# Dynamic-Thumbnails
-A WordPress plugin for theme developer to dynamically generate thumbnails on the fly without having to manually regenerate them.
+# No Nonsense slider
+
+A very lightweight slider for WordPress built using [Unslider](https://idiot.github.io/unslider/).
+Around 10KB footprint, less than 5KB when gzipped.
