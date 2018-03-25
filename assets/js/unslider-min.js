@@ -2,10 +2,13 @@
 
 jQuery(document).ready(function($) {
     $('.nns-slider').unslider({
+        autoplay: true,
+        delay:6000,
+        infinite:true,
         arrows: {
             //  Unslider default behaviour
-            prev: '<span class="unslider-arrow prev icon he-chevron-circle-left"></span>',
-            next: '<span class="unslider-arrow next icon he-chevron-circle-right"></span>',
+            prev: '<span class="unslider-arrow prev  he-chevron-circle-left"></span>',
+            next: '<span class="unslider-arrow next  he-chevron-circle-right"></span>',
 
         }
     });

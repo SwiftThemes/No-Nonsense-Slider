@@ -3,7 +3,7 @@
  * Plugin Name: No Nonsense Slider
  * Plugin URI: http://swiftthemes.com/nns/
  * Description: A very lightweight slider for WordPress built using [Unslider](https://idiot.github.io/unslider/).
-Around 10KB footprint, less than 5KB when gzipped.
+ * Around 10KB footprint, less than 5KB when gzipped.
  * * Version: 0.1
  * Author: Satish Gandham
  * Author URI: http://SatishGandham.Com
@@ -117,10 +117,15 @@ function nns_query_slider(
 	);
 	$query_args  = wp_parse_args( $query_args, $defaults );
 	$recentPosts = new WP_Query( $query_args );
+	if ( 'background_image' === $template ) {
+		$height = $img_size[1] . 'px';
+	} else {
+		$height = 'auto';
+	}
 	if ( have_posts() ) :
 
 		?>
-        <div class="nns-slider" style="height: <?php echo $img_size[1]?>px">
+        <div class="nns-slider" style="height: <?php echo $height; ?>">
             <ul>
 				<?php
 				while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
@@ -142,8 +147,9 @@ function nns_slide_background_image( $size, $excerpt = false ) {
 	?>
     <li>
         <div class="image-bg" onclick="window.open('<?php the_permalink(); ?>','_self');return false;"
-           style="background-image:url('<?php echo esc_url( get_the_post_thumbnail_url( null, $size ) ) ?>'); "
-           ><div class="caption">
+             style="background-image:url('<?php echo esc_url( get_the_post_thumbnail_url( null, $size ) ) ?>'); "
+        >
+            <div class="caption">
                 <h2 class="post-title">
 					<?php the_title(); ?>
                 </h2>
