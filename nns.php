@@ -4,7 +4,7 @@
  * Plugin URI: http://swiftthemes.com/nns/
  * Description: A very lightweight slider for WordPress built using [Unslider](https://idiot.github.io/unslider/).
  * Around 10KB footprint, less than 5KB when gzipped.
- * * Version: 0.1
+ * * Version: 0.11
  * Author: Satish Gandham
  * Author URI: http://SatishGandham.Com
  *
