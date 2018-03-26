@@ -108,9 +108,7 @@ function nns_query_slider(
 ), $show_excerpt = false, $classes = ''
 ) {
 
-	if ( ! is_home() ) {
-		return;
-	}
+
 	$defaults    = array(
 		'ignore_sticky_posts' => 1,
 		'posts_per_page'      => 4,
