@@ -1,0 +1,44 @@
+{
+  "name": "simple-responsive-slider",
+  "version": "1.0.0",
+  "description": "A very lightweight slider for WordPress built using [Unslider](https://idiot.github.io/unslider/). Around 10KB footprint, less than 5KB when gzipped.",
+  "main": "gulp.js",
+  "dependencies": {
+    "babel-plugin-transform-react-jsx": "^6.24.1",
+    "gulp-babel": "^7.0.1"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-preset-react": "^6.24.1",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-deporder": "^1.1.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-rsync": "0.0.8",
+    "gulp-run-sequence": "^0.3.2",
+    "gulp-strip-debug": "^3.0.0",
+    "gulp-uglify": "^3.0.1",
+    "gulp-uglify-es": "^1.0.4",
+    "gulp-watch": "^5.0.1",
+    "gulp-zip": "^4.2.0",
+    "pump": "^3.0.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SwiftThemes/No-Nonsense-Slider.git"
+  },
+  "author": "Satish Gandham",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SwiftThemes/No-Nonsense-Slider/issues"
+  },
+  "homepage": "https://github.com/SwiftThemes/No-Nonsense-Slider#readme",
+  "keywords": [
+    "WordPress",
+    "Slider",
+    "UnSlider"
+  ]
+}

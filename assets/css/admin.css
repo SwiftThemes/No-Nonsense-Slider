@@ -1,0 +1,58 @@
+.slide-details {
+    background: #FFF;
+    border:solid 1px #CCC;
+    margin-bottom: 20px;
+
+}
+.slide-details .details{
+    padding:10px;
+    overflow: hidden;
+}
+.slide-details .details input ,
+.slide-details .details textarea {
+    width:100%;
+    margin-bottom: 10px;
+}
+.slide-details .details input[type='checkbox'] {
+    width: auto;margin: 0;
+}
+
+
+
+.move-controls{
+    border-radius: 5px;
+    float: left;
+    background: #007aff;
+    overflow: hidden;
+}
+
+.move-controls button{background: transparent;    color:#FFF;
+    padding: 5px 8px;
+    cursor: pointer;
+}
+
+.move-controls button:hover{
+    background: rgba(0,0,0,.2);
+}
+.move-controls button:first-child{
+    border-right: solid 1px rgba(0,0,0,.2);
+}
+
+.move-controls button{border: 0}
+
+
+
+.caption h2{color:#FFF!important;}
+
+.clear{clear: both}
+.cf:before,
+.cf:after {
+    content: " "; //* 1 */
+display: table; //* 2 */
+}
+.cf:after {
+    clear: both;
+}
+.cf {
+    *zoom: 1;
+}
