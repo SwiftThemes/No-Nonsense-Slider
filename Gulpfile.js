@@ -13,22 +13,25 @@ var gulp = require("gulp"),
   rsync = require("gulp-rsync");
 
 gulp.task("jsx", function() {
-  return gulp
-    .src("assets/js/admin/*.jsx")
-    .pipe(
-      babel({
-        presets: ["react"]
-      })
-    )
-    .pipe(concat("srs-admin-scripts.js"))
-    .pipe(
-      rename({
-        basename: "srs-admin-scripts",
-        suffix: ".min"
-      })
-    )
-    .pipe(uglify())
-    .pipe(gulp.dest("./assets/js/admin/"));
+  console.log("called");
+  return (
+    gulp
+      .src("assets/js/admin/*.jsx")
+      .pipe(
+        babel({
+          presets: ["react"]
+        })
+      )
+      .pipe(concat("srs-admin-scripts.js"))
+      .pipe(
+        rename({
+          basename: "srs-admin-scripts",
+          suffix: ".min"
+        })
+      )
+      // .pipe(uglify())
+      .pipe(gulp.dest("./assets/js/admin/"))
+  );
 });
 
 gulp.task("scripts", function() {
@@ -43,7 +46,7 @@ gulp.task("scripts", function() {
           suffix: ".min"
         })
       )
-      .pipe(uglify())
+      // .pipe(uglify())
       .on("error", function(err) {
         gutil.log(gutil.colors.red("[Error]"), err.toString());
       })
@@ -51,8 +54,13 @@ gulp.task("scripts", function() {
   );
 });
 gulp.task("watch", ["jsx", "scripts"], function() {
-  watch("./assets/js/admin/*.jsx", ["jsx"]);
-  watch("./assets/js/*.js", ["scripts"]);
+  // watch("assets/js/admin/*.jsx", ["jsx"]);
+  // watch("assets/js/*.js", ["scripts"]);
+
+  watch("assets/js/admin/*.jsx", function() {
+    gulp.start("jsx");
+  });
+  watch("assets/js/*.js", ["scripts"]);
 });
 
 buildInclude = [
