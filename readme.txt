@@ -4,7 +4,7 @@ Donate link: https://paypal.me/swiftthemes
 Tags: Responsive Slider, Slideshow, lite weight slider, Best slider Plugin, SEO Slider
 Requires at least: 3.0
 Tested up to: 4.96
-Stable tag: 2.1.1
+Stable tag: 2.2.3
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
 
@@ -31,5 +31,8 @@ You can use the slider with any theme.
 == Changelog ==
 
 
+** 2.2.3 2019-11-02 **
+* Add option to set slider speed.
+* Improve the slider admin.
 **2.1.1**
 * First release.

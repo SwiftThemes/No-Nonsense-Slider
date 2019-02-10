@@ -60,7 +60,9 @@ gulp.task("watch", ["jsx", "scripts"], function() {
   watch("assets/js/admin/*.jsx", function() {
     gulp.start("jsx");
   });
-  watch("assets/js/*.js", ["scripts"]);
+  watch("assets/js/*.js", function() {
+    gulp.start("scripts");
+  });
 });
 
 buildInclude = [
