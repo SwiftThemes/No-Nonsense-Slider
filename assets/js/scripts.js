@@ -1,6 +1,6 @@
 jQuery(document).ready(function($) {
   $(".srs-slider").each(function() {
-    var delay = $(this).data("delay");
+    var delay = $(this).data("speed");
     var slider = $(this).unslider({
       autoplay: true,
       delay: delay,

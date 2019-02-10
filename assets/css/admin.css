@@ -1,12 +1,31 @@
+.slides{
+    max-height: 520px;
+    overflow: auto;
+    border: solid 1px #DDD;
+    padding: 20px;
+    background:#f6f6f6;
+}
 .slide-details {
     background: #FFF;
     border:solid 1px #CCC;
     margin-bottom: 20px;
+    position:relative
 
+}
+.slide-details .img{
+    top:0;
+    bottom:0;
+    margin: auto;
+    position: absolute;
+    background-position: center;
+    padding: 12.5%;
+      background-size: cover;
 }
 .slide-details .details{
     padding:10px;
-    overflow: hidden;
+    overflow: hidden;    
+    padding-left: 27%
+
 }
 .slide-details .details input ,
 .slide-details .details textarea {
@@ -16,9 +35,6 @@
 .slide-details .details input[type='checkbox'] {
     width: auto;margin: 0;
 }
-
-
-
 .move-controls{
     border-radius: 5px;
     float: left;

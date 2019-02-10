@@ -4,13 +4,13 @@
   "description": "A very lightweight slider for WordPress built using [Unslider](https://idiot.github.io/unslider/). Around 10KB footprint, less than 5KB when gzipped.",
   "main": "gulp.js",
   "dependencies": {
-    "babel-plugin-transform-react-jsx": "^6.24.1",
-    "gulp-babel": "^7.0.1"
+    "babel-plugin-transform-react-jsx": "^6.24.1"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
     "babel-preset-react": "^6.24.1",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.1",
     "gulp-concat": "^2.6.1",
     "gulp-deporder": "^1.1.0",
     "gulp-rename": "^1.4.0",

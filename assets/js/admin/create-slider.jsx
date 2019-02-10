@@ -28,8 +28,11 @@ class Slide extends React.Component {
   render() {
     const slide = this.props.slide;
 
+    const url = slide.sizes.large
+      ? slide.sizes.large.url
+      : slide.sizes.full.url;
     const style = {
-      backgroundImage: `url('${slide.sizes.large.url}')`
+      backgroundImage: `url('${url}')`
     };
     return (
       <li id={slide.id}>
@@ -48,10 +51,7 @@ class Slider extends React.Component {
   constructor(props) {
     super(props);
     this.slider = null;
-  }
-
-  componentDidMount() {
-    this.slider = jQuery("#srs-preview").unslider({
+    const sliderConfig = {
       autoplay: false,
       delay: 6000,
       infinite: false,
@@ -62,12 +62,20 @@ class Slider extends React.Component {
         next:
           '<span class="unslider-arrow next  he-chevron-circle-right"></span>'
       }
-    });
+    };
+    this.state = { sliderConfig };
+  }
+
+  componentDidMount() {
+    const { sliderConfig } = this.state;
+    this.slider = jQuery("#srs-preview").unslider(sliderConfig);
   }
 
   componentDidUpdate() {
-    debugger;
-    this.slider.data("unslider").calculateSlides();
+    const { sliderConfig } = this.state;
+
+    this.slider.data("unslider").destroyNav();
+    this.slider.data("unslider").init(sliderConfig);
   }
 
   render() {
@@ -204,9 +212,7 @@ class SlideDetails extends React.Component {
       marginTop: "1.8em"
     };
     const backGroundImage = {
-      backgroundImage: `url(${slide.sizes.medium.url})`,
-      padding: "12.5%",
-      backgroundSize: "cover"
+      backgroundImage: `url(${slide.sizes.medium.url})`
     };
     return (
       <div
@@ -215,7 +221,7 @@ class SlideDetails extends React.Component {
         onClick={this.makeSlideActive}
       >
         {/*<img src={slide.sizes.medium.url} className="alignleft" onClick={this.editSlide}/>*/}
-        <div style={backGroundImage} className="alignleft">
+        <div style={backGroundImage} className="alignleft img">
           &nbsp;
         </div>
         <div className=" details">
@@ -550,6 +556,22 @@ class SecondaryApp extends React.Component {
               </td>
             </tr>
             <tr>
+              <td>Slider speed</td>
+              <td>
+                <input
+                  type="number"
+                  defaultValue="6000"
+                  name="slider[properties][speed]"
+                  value={properties.speed}
+                  data-name="speed"
+                  min="2000"
+                  onChange={this.updateSliderProperties}
+                  style={{ width: "80px" }}
+                />
+                &nbsp; ms/slide
+              </td>
+            </tr>
+            <tr>
               <td>Slider type</td>
               <td>
                 <select
@@ -563,7 +585,6 @@ class SecondaryApp extends React.Component {
                 </select>
               </td>
             </tr>
-
             <tr>
               <td colSpan={2}>
                 <h3>Advanced Options</h3>
@@ -617,7 +638,6 @@ class SecondaryApp extends React.Component {
                 </label>
               </td>
             </tr>
-
             <tr>
               <td colSpan={2}>
                 <h3>Developer Options</h3>
