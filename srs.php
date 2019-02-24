@@ -3,7 +3,7 @@
  * Plugin Name: Simple Responsive Slider
  * Plugin URI: http://swiftthemes.com/simple-slider/
  * Description: A very lightweight slider for WordPress built using [Unslider](https://idiot.github.io/unslider/). Around 10KB footprint, less than 5KB when gzipped.
- * Version: 2.2.3
+ * Version: 2.2.4
  * Author: Satish Gandham
  * Author URI: http://SatishGandham.Com
  *
@@ -96,7 +96,7 @@ function srs_query_slider(
 	$query_args, $template = '', $img_size = array(
 	1200,
 	600
-), $show_excerpt = false, $classes = ''
+), $show_excerpt = false, $classes = '',$speed=6000
 ) {
 
 
@@ -111,7 +111,7 @@ function srs_query_slider(
 	if ( have_posts() ) :
 
 		?>
-        <div class="srs-slider" style="height: <?php echo $height; ?>">
+        <div class="srs-slider" data-speed="<?php echo $speed?>"style="height: <?php echo $height; ?>">
             <ul>
 				<?php
 				while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
@@ -152,7 +152,7 @@ function srs_slide_inline_image( $size, $excerpt = false ) {
 	?>
     <li>
         <a href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail( $size, array( 'class' => 'alignleft' ) ) ?></a>
+			<?php the_post_thumbnail( $size, array( 'class' => 'alignleft no-lazy-load' ) ) ?></a>
         <div class="caption">
             <h2 class="post-title">
                 <a href="<?php the_permalink(); ?>"

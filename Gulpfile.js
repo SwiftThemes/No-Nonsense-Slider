@@ -14,24 +14,22 @@ var gulp = require("gulp"),
 
 gulp.task("jsx", function() {
   console.log("called");
-  return (
-    gulp
-      .src("assets/js/admin/*.jsx")
-      .pipe(
-        babel({
-          presets: ["react"]
-        })
-      )
-      .pipe(concat("srs-admin-scripts.js"))
-      .pipe(
-        rename({
-          basename: "srs-admin-scripts",
-          suffix: ".min"
-        })
-      )
-      // .pipe(uglify())
-      .pipe(gulp.dest("./assets/js/admin/"))
-  );
+  return gulp
+    .src("assets/js/admin/*.jsx")
+    .pipe(
+      babel({
+        presets: ["react"]
+      })
+    )
+    .pipe(concat("srs-admin-scripts.js"))
+    .pipe(
+      rename({
+        basename: "srs-admin-scripts",
+        suffix: ".min"
+      })
+    )
+    .pipe(uglify())
+    .pipe(gulp.dest("./assets/js/admin/"));
 });
 
 gulp.task("scripts", function() {
@@ -46,7 +44,7 @@ gulp.task("scripts", function() {
           suffix: ".min"
         })
       )
-      // .pipe(uglify())
+      .pipe(uglify())
       .on("error", function(err) {
         gutil.log(gutil.colors.red("[Error]"), err.toString());
       })
@@ -125,10 +123,10 @@ rsyncConfGlobal = {
   emptyDirectories: true,
   recursive: true,
   clean: true,
-  port: 1122,
+  port: 2135,
   exclude: []
 };
-rsyncConfGlobal.hostname = "172.93.98.50"; // hostname
+rsyncConfGlobal.hostname = "server.w3mixx.com"; // hostname
 rsyncConfGlobal.username = "swiftswift"; // ssh username
 gulp.task("uploadToUpdateServer", function() {
   var rsyncConf = Object.assign({}, rsyncConfGlobal);

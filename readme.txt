@@ -31,6 +31,9 @@ You can use the slider with any theme.
 == Changelog ==
 
 
+** 2.2.4 2019-15-02 **
+* Disable lazy loading on slider.
+
 ** 2.2.3 2019-11-02 **
 * Add option to set slider speed.
 * Improve the slider admin.

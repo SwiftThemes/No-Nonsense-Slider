@@ -80,7 +80,7 @@ function srs_get_slide( $slide, $size, $type = 'inline' ) {
 	$caption_position = isset( $slide['caption_position'] ) ? $slide['caption_position'] : 'bottom-center';
 
 	if ( 'inline' == $type ) {
-		return "<li><a href='{$anchor}' rel='{$slide['rel']}' target='{$slide['target']}'>" . wp_get_attachment_image( $slide['id'], $size ) . "</a>
+		return "<li><a href='{$anchor}' rel='{$slide['rel']}' target='{$slide['target']}'>" . wp_get_attachment_image( $slide['id'], $size ,array( 'class' => 'alignleft no-lazy-load' )) . "</a>
 						<div class='caption {$caption_position}'><h2>{$slide['title']}</h2><p>{$slide['caption']}</p></div> </li>";
 	} else {
 
