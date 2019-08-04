@@ -3,7 +3,7 @@
  * Plugin Name: Simple Responsive Slider
  * Plugin URI: http://swiftthemes.com/simple-slider/
  * Description: A very lightweight slider for WordPress built using [Unslider](https://idiot.github.io/unslider/). Around 10KB footprint, less than 5KB when gzipped.
- * Version: 2.2.4
+ * Version: 2.2.7
  * Author: Satish Gandham
  * Author URI: http://SatishGandham.Com
  *
@@ -108,17 +108,18 @@ function srs_query_slider(
 	$recentPosts = new WP_Query( $query_args );
 	$height      = $img_size[1] . 'px';
 
-	if ( have_posts() ) :
 
+	if ( have_posts() ) :
+		$i=0;
 		?>
-        <div class="srs-slider" data-speed="<?php echo $speed?>"style="height: <?php echo $height; ?>">
-            <ul>
+        <div class="srs-slider" data-speed="<?php echo $speed?>" style="height: <?php echo $height; ?>">
+            <ul class="cf slides">
 				<?php
 				while ( $recentPosts->have_posts() ) : $recentPosts->the_post();
 					if ( 'background_image' === $template ) {
 						srs_slide_background_image( $img_size, $show_excerpt );
 					} else {
-						srs_slide_inline_image( $img_size, $show_excerpt );
+						srs_slide_inline_image( $img_size, $show_excerpt, $i++ );
 					}
 				endwhile;
 				?>
@@ -148,11 +149,15 @@ function srs_slide_background_image( $size, $excerpt = false ) {
 	<?php
 }
 
-function srs_slide_inline_image( $size, $excerpt = false ) {
+function srs_slide_inline_image( $size, $excerpt = false, $index ) {
+	$lazy_load='';
+	if($index === 0){
+		$lazy_load = 'no-lazy-load';
+	}
 	?>
     <li>
         <a href="<?php the_permalink(); ?>">
-			<?php the_post_thumbnail( $size, array( 'class' => 'alignleft no-lazy-load' ) ) ?></a>
+			<?php the_post_thumbnail( $size, array( 'class' => 'alignleft '.$lazy_load ) ); ?></a>
         <div class="caption">
             <h2 class="post-title">
                 <a href="<?php the_permalink(); ?>"

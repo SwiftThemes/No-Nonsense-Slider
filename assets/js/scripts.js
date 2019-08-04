@@ -1,5 +1,6 @@
 jQuery(document).ready(function($) {
   $(".srs-slider").each(function() {
+    // return;
     var delay = $(this).data("speed");
     var slider = $(this).unslider({
       autoplay: true,
@@ -20,5 +21,22 @@ jQuery(document).ready(function($) {
       .on("mouseout", function() {
         slider.unslider("start");
       });
+
+    var self = this;
+    setTimeout(function() {
+      $(self)
+        .find("img.srsImgNotLoaded")
+        .each(function(el) {
+          $(this).removeClass("srsImgNotLoaded");
+          var src = $(this).data("src");
+          var srcset = $(this).data("srcset");
+          if (src) {
+            $(this).attr("src", src);
+          }
+          if (srcset) {
+            $(this).attr("srcset", srcset);
+          }
+        });
+    }, delay * 0.5);
   });
 });

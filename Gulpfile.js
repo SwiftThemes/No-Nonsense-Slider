@@ -58,7 +58,7 @@ gulp.task("watch", ["jsx", "scripts"], function() {
   watch("assets/js/admin/*.jsx", function() {
     gulp.start("jsx");
   });
-  watch("assets/js/*.js", function() {
+  watch(["assets/js/*.js", "!./assets/js/*.min.js"], function() {
     gulp.start("scripts");
   });
 });
@@ -128,6 +128,7 @@ rsyncConfGlobal = {
 };
 rsyncConfGlobal.hostname = "server.w3mixx.com"; // hostname
 rsyncConfGlobal.username = "swiftswift"; // ssh username
+
 gulp.task("uploadToUpdateServer", function() {
   var rsyncConf = Object.assign({}, rsyncConfGlobal);
   rsyncConf.root = "/Users/satish/Desktop/";
