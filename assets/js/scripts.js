@@ -23,6 +23,8 @@ jQuery(document).ready(function($) {
       });
 
     var self = this;
+
+    var timeout = delay / 2 < 2500 ? delay / 2 : 2500;
     setTimeout(function() {
       $(self)
         .find("img.srsImgNotLoaded")
@@ -37,6 +39,6 @@ jQuery(document).ready(function($) {
             $(this).attr("srcset", srcset);
           }
         });
-    }, delay * 0.5);
+    }, timeout);
   });
 });
